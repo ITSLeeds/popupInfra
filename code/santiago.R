@@ -47,3 +47,5 @@ tm_shape(osm_popup) +
   tm_lines(col = "highway", lwd = "n_lanes", scale = 5) +
   tm_scale_bar() +
   tm_basemap(server = s)
+
+

@@ -1,0 +1,145 @@
+---
+title: "Redes de transporte"
+subtitle: ' 🚲🚃🚀'
+author: "Robin Lovelace"
+date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
+output:
+  xaringan::moon_reader:
+    # css: ["default", "its.css"]
+    # chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+---
+
+background-image: url(https://c1.staticflickr.com/2/1216/1096671706_571a263b63_b.jpg)
+background-position: 50% 50%
+class: center, bottom, inverse
+
+# Credit: Mandeep Lota via [flickr](https://www.flickr.com/photos/deepster2k/1096671706)
+
+---
+
+# Introduction
+
+- A bit about me + research:
+
+- From rural [Herefordshire](https://www.openstreetmap.org/search?query=herefordshire#map=10/52.1116/-2.7397)
+
+--
+
+- Geographer (BSc 2008) and Environmental Scientist (MSc 2009) by training
+- Interest in energy led to PhD in transport (PhD in energy costs of commuting [2014](http://etheses.whiterose.ac.uk/5027/))
+- Limitations of [GUIs](https://twitter.com/robinlovelace/status/1129404652150243329) for modelling -> Spatial Microsimulation with R ([2016](https://spatial-microsim-book.robinlovelace.net/))
+- Co-authored Efficient R Programming ([2016](https://csgillespie.github.io/efficientR/))
+- Lead Developer of Propensity to Cycle Tool (PCT) ([2017](https://www.jtlu.org/index.php/jtlu/article/view/862))
+- Application of methods, e.g. to school accessibility ([2018](http://eprints.whiterose.ac.uk/121439/))
+- Co-author of Geocomputation with R ([2019](http://geocompr.robinlovelace.net/transport.html))
+
+---
+
+## Datos geographicos
+
+```{r}
+u = "https://www.openstreetmap.org/trace/2992569/data"
+download.file(u, "track.gpx")
+sf::st_layers("track.gpx")
+```
+
+---
+
+## Analisis reproducible
+
+```{r}
+track = sf::read_sf("track.gpx", layer = "track_points")
+mapview::mapview(track)
+```
+
+---
+
+## Slopes
+
+See https://itsleeds.github.io/slopes/
+
+![](https://itsleeds.github.io/slopes/reference/figures/README-plot_slope-1.png)
+
+---
+
+## Clasificacion de datos
+
+![](https://user-images.githubusercontent.com/1825120/81728645-b285e480-9482-11ea-9527-6b2ceb4f19b1.png)
+
+---
+
+## Hierarchies of data
+
+- Recommendations
+
+- Build this here!
+
+- City-specific datasets
+  - Bristol cycle count data
+
+- Hard-to-access national data
+
+- Open international/national datasets
+  - Open origin-destination data from UK Census
+
+- Globally available, low-grade data (bottom)
+  - OpenStreetMap, Elevation data
+
+---
+
+## An ease-of access pyramid
+
+- Data provision packages
+  - Use the pct package
+  - stats19 package
+
+- Pre-processed data
+  - E.g. downloading data from website www.pct.bike
+
+- Messy official data
+  - Raw STATS19 data
+
+---
+
+## A geographic level of detail pyramid
+
+- Agents
+- Route networks
+- Nodes
+- Routes
+- Desire lines
+- Transport zones
+
+---
+
+## Propensity to Cycle Tool
+
+See www.pct.bike
+
+![](https://raw.githubusercontent.com/npct/pct-team/master/figures/front-page-leeds-pct-demo.png)
+
+---
+
+# Prioritising network growth
+
+![](https://www.cyipt.bike/images/home-example.png)
+
+---
+
+# Pop-up infrastructure
+
+See preprint: https://osf.io/7wjb6/
+
+![](https://raw.githubusercontent.com/cyipt/popupCycleways/master/figures/results-leeds.png)
+
+---
+
+# Preguntas y (a lo mejor) codigo
+
+r. lovelace at leeds. ac .uk
+
+@robinlovelace
